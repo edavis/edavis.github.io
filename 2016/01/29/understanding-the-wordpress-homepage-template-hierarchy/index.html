@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Personal homepage for Eric Davis">
+    <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
+    <title>Understanding the WordPress Homepage Template Hierarchy</title>
+    <meta name="generator" content="Hugo 0.32.4" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="https://edavis.github.io/css/overrides.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://edavis.github.io/"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+        <li><a href="/projects/">PROJECTS</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="https://edavis.github.io/2016/01/29/understanding-the-wordpress-homepage-template-hierarchy/">Understanding the WordPress Homepage Template Hierarchy</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          January 29, 2016
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>I&rsquo;ve spent a few hours trying to wrap my head around how WordPress
+determines which template to use depending on which &ldquo;Front page
+displays&rdquo; option has been set. I&rsquo;m writing this as the guide I wish
+existed when I was looking into this.</p>
+
+<p>If &ldquo;Front page displays&rdquo; is set to &ldquo;Your latest posts,&rdquo; WordPress will
+use front-page.php to render your homepage if the file exists. If
+front-page.php doesn&rsquo;t exist, WordPress will use home.php with a
+fallback to index.php.</p>
+
+<p>If &ldquo;Front page displays&rdquo; is set to &ldquo;A static page,&rdquo; you&rsquo;ll also have
+to set which pages to use for &ldquo;Front page&rdquo; and &ldquo;Posts page.&rdquo;</p>
+
+<p>For &ldquo;Front page,&rdquo; WordPress will use front-page.php to render the page
+if the file exists. If front-page.php doesn&rsquo;t exist, WordPress will
+use the standard Page template hierarchy (<em>i.e.,</em> custom page
+template, page-slug.php, page-id.php, page.php, index.php).</p>
+
+<p>For &ldquo;Posts page,&rdquo; WordPress will only ever look to home.php with a
+fallback to index.php. The existence (or non-existence) of
+front-page.php doesn&rsquo;t affect anything here.</p>
+
+<p>In a nutshell, front-page.php can be used to render either a list of
+posts (&ldquo;Your latest posts&rdquo;) or a static page (&ldquo;A static page -&gt;
+Front page&rdquo;) depending on the site settings.</p>
+
+<p>Refs:
+<ul>
+    <li><a href="https://make.wordpress.org/themes/2014/06/28/correct-handling-of-static-front-page-and-custom-blog-posts-index-template/">https://make.wordpress.org/themes/2014/06/28/correct-handling-of-static-front-page-and-custom-blog-posts-index-template/</a></li>
+    <li><a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">https://developer.wordpress.org/themes/basics/template-hierarchy/</a></li>
+    <li><a href="http://wphierarchy.com/">http://wphierarchy.com/</a></li>
+</ul></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a>,
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">Sustain</a>, and ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://edavis.github.io/js/docs.min.js"></script>
+<script src="https://edavis.github.io/js/main.js"></script>
+
+<script src="https://edavis.github.io/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+  </body>
+</html>

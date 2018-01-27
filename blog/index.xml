@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Eric Davis</title>
+    <link>https://edavis.github.io/blog/</link>
+    <description>Recent content in Blogs on Eric Davis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://edavis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go in one word? Productivity</title>
+      <link>https://edavis.github.io/2017/05/10/go-in-one-word-productivity/</link>
+      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2017/05/10/go-in-one-word-productivity/</guid>
+      <description>I&amp;rsquo;ve been batting around this idea over the past few days. Go is a great language and it has many superb features, but if I had to distill what I like so much about Go into one word, that word would be &amp;ldquo;productive.&amp;rdquo; I feel so incredibly productive writing Go code.
+Start with the documentation. I love Go&amp;rsquo;s documentation. I don&amp;rsquo;t know how much of it was a conscious decision by the developers, but the &amp;ldquo;culture of documentation&amp;rdquo; that I loved in Python is very much alive in the Go community.</description>
+    </item>
+    
+    <item>
+      <title>Understanding the WordPress Homepage Template Hierarchy</title>
+      <link>https://edavis.github.io/2016/01/29/understanding-the-wordpress-homepage-template-hierarchy/</link>
+      <pubDate>Fri, 29 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2016/01/29/understanding-the-wordpress-homepage-template-hierarchy/</guid>
+      <description>I&amp;rsquo;ve spent a few hours trying to wrap my head around how WordPress determines which template to use depending on which &amp;ldquo;Front page displays&amp;rdquo; option has been set. I&amp;rsquo;m writing this as the guide I wish existed when I was looking into this.
+If &amp;ldquo;Front page displays&amp;rdquo; is set to &amp;ldquo;Your latest posts,&amp;rdquo; WordPress will use front-page.php to render your homepage if the file exists. If front-page.php doesn&amp;rsquo;t exist, WordPress will use home.</description>
+    </item>
+    
+    <item>
+      <title>The Google Post Mortem</title>
+      <link>https://edavis.github.io/2015/08/04/the-google-post-mortem/</link>
+      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2015/08/04/the-google-post-mortem/</guid>
+      <description>I&amp;rsquo;ve been looking forward to reading this post-mortem ever since Google+ launched.
+I remember jumping onto Google+ right after it launched and while the initial launch was exciting, it always just seemed obvious it would never catch on like Facebook.</description>
+    </item>
+    
+    <item>
+      <title>Confessions of a Web Developer</title>
+      <link>https://edavis.github.io/2015/03/05/confessions-of-a-web-developer/</link>
+      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2015/03/05/confessions-of-a-web-developer/</guid>
+      <description>I do sometimes wonder whether my starting programming as a web developer and not as some hardcore assembly hacker will ultimately lower my ceiling on what I can accomplish.
+I&amp;rsquo;ve never really had to deal with memory management, hardware, or stuff like that. I started by building super simple HTML pages, learned some CSS, moved on to PHP before jumping ship to Python where I&amp;rsquo;ve largely stayed. Of course I&amp;rsquo;ve dabbled with tons of languages in between, but web and python programming is how I categorize what I do.</description>
+    </item>
+    
+    <item>
+      <title>A Polyglot Guide to Package Management</title>
+      <link>https://edavis.github.io/2014/09/21/a-polyglot-guide-to-package-management/</link>
+      <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2014/09/21/a-polyglot-guide-to-package-management/</guid>
+      <description>Here&amp;rsquo;s something I would love to see: An online guide that explained everything you need to know about installing packages using a particular language&amp;rsquo;s package manager.
+I use Python&amp;rsquo;s package manager, pip, on a near-daily basis. I know that even if a package author doesn&amp;rsquo;t mention virtualenv in the docs, I can quickly create one and install the package there to keep things separate if I want to. And if a package author does mention virtualenv, I&amp;rsquo;ll understand the purpose of that step.</description>
+    </item>
+    
+    <item>
+      <title>How Slackware Made Me a Better Developer</title>
+      <link>https://edavis.github.io/2014/09/21/how-slackware-made-me-a-better-developer/</link>
+      <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2014/09/21/how-slackware-made-me-a-better-developer/</guid>
+      <description>Kwame Opam reminiscences about Linux and how it&amp;rsquo;ll always hold a special place in his heart:
+ Thinking about this, I remembered how much I loved (and still love) Linux. And I had to reminisce. I remember being a pimply high school kid circa 2002 and configuring Gentoo Linux by hand — kernel and all — onto my little beige eMachines computer, losing days of actual productivity in the process. And loving it.</description>
+    </item>
+    
+  </channel>
+</rss>
