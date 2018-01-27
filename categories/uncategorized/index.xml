@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uncategorized on Eric Davis</title>
+    <link>https://edavis.github.io/categories/uncategorized/</link>
+    <description>Recent content in Uncategorized on Eric Davis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Dec 2017 15:26:26 +0000</lastBuildDate>
+    
+	<atom:link href="https://edavis.github.io/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Updates since last time</title>
+      <link>https://edavis.github.io/2017/12/18/updates-since-last-time/</link>
+      <pubDate>Mon, 18 Dec 2017 15:26:26 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2017/12/18/updates-since-last-time/</guid>
+      <description>I was on this blog for the first time in months and realized a lot of what I wrote in the post before this and on the Projects page has changed!
+The biggest change is that I&amp;rsquo;m not renewing the ericdavis.io domain and have scrapped plans of moving all my projects to subdomains underneath it.
+Up until a few days ago, renewing ericdavis.io was still the plan but the Namecheap auto-renew failed (I hadn&amp;rsquo;t realized that simply adding a new card wasn&amp;rsquo;t enough.</description>
+    </item>
+    
+    <item>
+      <title>The tallest man in history</title>
+      <link>https://edavis.github.io/2015/07/27/the-tallest-man-in-history/</link>
+      <pubDate>Mon, 27 Jul 2015 15:52:14 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2015/07/27/the-tallest-man-in-history/</guid>
+      <description>As a tall kid, I was fascinated by this guy when I first read about him.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://edavis.github.io/2015/07/27/hello-world/</link>
+      <pubDate>Mon, 27 Jul 2015 09:28:32 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2015/07/27/hello-world/</guid>
+      <description>Hi, I&amp;rsquo;m Eric and this is my new blog.
+I&amp;rsquo;ve tried — and failed — so many times at starting a blog it has become comical. I&amp;rsquo;ve tried nearly every flat-file blogging system out there. I&amp;rsquo;ve even taken stabs at writing my own. This isn&amp;rsquo;t even the first Wordpress blog I&amp;rsquo;ve started. Each time I get all excited for a few days, then just slow down, then stop entirely. Of course, I&amp;rsquo;m not alone in this.</description>
+    </item>
+    
+    <item>
+      <title>Graphs and the y-axis</title>
+      <link>https://edavis.github.io/2014/09/15/graphs-and-the-y-axis/</link>
+      <pubDate>Mon, 15 Sep 2014 15:26:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2014/09/15/graphs-and-the-y-axis/</guid>
+      <description>For as long as I&#39;ve been aware of this sort of thing, I&#39;ve always been under the impression that it is wrong to create a graph where the y-axis doesn&#39;t start at zero.  And yet, here is a graph by Harry Enten at FiveThirtyEight that does exactly that:  I remember being told in elementary school that doing this exaggerates the difference between values and should be avoided.  Wikipedia seems to agree with me but also notes that it&#39;s okay to not start at zero when zero is basically an impossible value to have on the graph.</description>
+    </item>
+    
+    <item>
+      <title>Why Wordpress?</title>
+      <link>https://edavis.github.io/2014/09/14/why-wordpress/</link>
+      <pubDate>Sun, 14 Sep 2014 14:10:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2014/09/14/why-wordpress/</guid>
+      <description>I think that while most developers recognize that Wordpress isn&amp;rsquo;t terrible, it&amp;rsquo;s rarely the first choice for developers looking to build a personal programming blog.
+So why did I choose Wordpress for my blog?
+The answer in one word: laziness. Or, more accurately, lack of interest in yak shaving.
+I&amp;rsquo;ve dabbled with more blog publishing systems than I care to count. Like a lot of developers I was particularly interested in &amp;ldquo;static blogging&amp;rdquo; engines (e.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://edavis.github.io/2014/09/14/hello-world/</link>
+      <pubDate>Sun, 14 Sep 2014 11:17:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2014/09/14/hello-world/</guid>
+      <description>Hello everyone. I&#39;m going to be relaunching this blog over the next few days. This is the first post in that effort.  It&#39;ll be mostly programming related (Python, Git, Emacs, RSS, etc.) but I may occassionally dabble with some political stuff. We&#39;ll see.  I&#39;m writing this post in Emacs and will be posting it with org2blog/wp. I like this system and how it feels. Honestly, it reminds me a bit of a simplified World Outline (something I have got to write about in the future).</description>
+    </item>
+    
+  </channel>
+</rss>

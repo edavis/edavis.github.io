@@ -7,7 +7,7 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Personal homepage for Eric Davis">
     <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
-    <title>How to track traffic in Google Analytics without JS</title>
+    <title>Using the Vary header with the @cache_page decorator</title>
     <meta name="generator" content="Hugo 0.32.4" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
@@ -51,12 +51,12 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://edavis.github.io/2017/05/07/how-to-track-traffic-in-google-analytics-without-js/">How to track traffic in Google Analytics without JS</a></strong>
+            <strong><a href="https://edavis.github.io/2015/02/27/using-the-vary-header-with-the-cache_page-decorator/">Using the Vary header with the @cache_page decorator</a></strong>
           </h3>
         </div>
         <div class="blog-title">
           <h4>
-          May 7, 2017
+          February 27, 2015
             &nbsp;&nbsp;
             
           </h4>
@@ -64,57 +64,28 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I&rsquo;ve long wanted to hook up the RSS feeds on <a href="https://hnrss.org/">hnrss.org</a> to Google Analytics so I could get a better sense of what kind of traffic the site got. But because the feeds are delivered as XML, I had to figure out a way to do it without JavaScript.</p>
+              <p><strong>Problem</strong></p>
 
-<p>After some poking around yesterday, I finally figured out a way.</p>
+<p>Earlier today I needed to cache a view with the @cache_page decorator. The output of this view changes depending on whether the user making the request is logged in or not. Pretty standard stuff.</p>
 
-<p>Google Analytics has a <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/">Measurement Protocol API</a> built for this sort of thing. You send a HTTP request (POST and GET both work) with the necessary parameters, and it&rsquo;ll register the hit in your Analytics property.</p>
+<p>However, I quickly discovered that @cache_page was caching both authenticated and anonymous requests under the same cache key. This led to the cache serving either the authenticated or anonymous version of the page, whichever was cached first. Not good.</p>
 
-<p>After testing it out locally using <code>curl</code> and seeing it all work, it was time to integrate with the app.</p>
+<p>I eventually found this <a href="http://www.technomancy.org/python/django-cache_page-useless/">blog post</a> and this <a href="https://code.djangoproject.com/ticket/15855">Django ticket</a> and between the two figured it out.</p>
 
-<p>After searching around for awhile, the eureka moment came when I <a href="https://github.com/lebinh/nginx-conf#sub-request-upon-completion">discovered the <code>post_action</code> feature</a> of NGINX. This enabled me to hit the Measurement Protocol API after serving the feed.</p>
+<p><strong>Solution</strong></p>
 
-<p>Here&rsquo;s the necessary bits that I had to add to my NGINX config to get it all working:</p>
+<p>In short, @cache_page created the same cache key for both authenticated and anonymous versions because a Vary header hadn&rsquo;t been set yet on the response. If the <code>Vary: Cookie</code> HTTP header had been set, the cache key would have changed depending on the value of the Cookie header and everything would have worked just fine.</p>
 
-<pre><code># replace UA-XXXXXXXX-Y with your Analytics property ID
-location @GA {
-  internal;
-  resolver 8.8.8.8 ipv6=off;
-  proxy_pass https://www.google-analytics.com/collect?v=1&amp;tid=UA-XXXXXXXX-Y&amp;cid=$remote_addr&amp;t=pageview&amp;dp=$request_uri&amp;uip=$remote_addr;
-}
+<p>The cleanest fix I could find is to use two decorators. First is to wrap the real view function with @vary_on_cookie (to set the <code>Vary: Cookie</code> header) and then wrap that function with @cache_page (to actually cache the page). Like so:</p>
 
-server {
-  # the standard stuff (server_name, listen, etc.)
-  location / {
-    # no changes needed other than adding post_action
-    post_action @GA;
-  }
-}
+<pre><code>&lt;code&gt;@cache_page(60*60)
+@vary_on_cookie
+def expensive_func(request):
+    # ...
+&lt;/code&gt;
 </code></pre>
 
-<p>Also, directly passing the User-Agent (e.g., <code>ua=$http_user_agent</code>) gave me all sorts of problems (I think it wasn&rsquo;t being properly URL encoded) so I sanitized them with a <code>map</code>:</p>
-
-<pre><code># N.B. maps have to exist in the http context
-map $http_user_agent $user_agent {
-  &quot;&quot;                    empty;
-  &quot;~Android&quot;            android;
-  &quot;~^Slackbot&quot;          slackbot;
-  &quot;~^curl&quot;              curl;
-  &quot;~^Feedbin&quot;           feedbin;
-  &quot;~^Tiny Tiny&quot;         ttrss;
-  &quot;~^NewsBlur&quot;          newsblur;
-  &quot;~^Feedly&quot;            feedly;
-  &quot;~^Go-http&quot;           golang;
-  &quot;~^UniversalFeed&quot;     feedparser;
-  &quot;~^Zapier&quot;            zapier;
-  &quot;~^PHP&quot;               php;
-  &quot;~^python-requests&quot;   python-requests;
-  &quot;~^Mozilla&quot;           mozilla;
-  default               other;
-}
-</code></pre>
-
-<p>Then I added <code>ua=$user_agent</code> to the URL. Not ideal, but good enough for me.</p>
+<p>After doing this, everything worked.</p>
 
             </div>
           </div>

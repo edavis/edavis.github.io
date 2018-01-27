@@ -7,7 +7,7 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Personal homepage for Eric Davis">
     <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
-    <title>How to track traffic in Google Analytics without JS</title>
+    <title>Bookmarks, Domains, and Blogs</title>
     <meta name="generator" content="Hugo 0.32.4" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
@@ -51,12 +51,12 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://edavis.github.io/2017/05/07/how-to-track-traffic-in-google-analytics-without-js/">How to track traffic in Google Analytics without JS</a></strong>
+            <strong><a href="https://edavis.github.io/2017/06/03/bookmarks-domains-and-blogs/">Bookmarks, Domains, and Blogs</a></strong>
           </h3>
         </div>
         <div class="blog-title">
           <h4>
-          May 7, 2017
+          June 3, 2017
             &nbsp;&nbsp;
             
           </h4>
@@ -64,57 +64,15 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I&rsquo;ve long wanted to hook up the RSS feeds on <a href="https://hnrss.org/">hnrss.org</a> to Google Analytics so I could get a better sense of what kind of traffic the site got. But because the feeds are delivered as XML, I had to figure out a way to do it without JavaScript.</p>
+              <p>I was feeling extra ambitious last night so I knocked out a bunch of things that have been on my todo list for awhile but never had gotten around to.</p>
 
-<p>After some poking around yesterday, I finally figured out a way.</p>
+<p>I went through my 1,200+ bookmarks that have accumulated over the years and purged just about every single one. I made a backup first, which helped me be aggressive. Down the road, should I need to dig one up, I&rsquo;ll be able to. Otherwise that file will sit quietly on Dropbox, out of sight and out of mind.</p>
 
-<p>Google Analytics has a <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/">Measurement Protocol API</a> built for this sort of thing. You send a HTTP request (POST and GET both work) with the necessary parameters, and it&rsquo;ll register the hit in your Analytics property.</p>
+<p>I found most of my bookmarks fell into one of two categories: a news article I saved to read later and resources I discover when I&rsquo;m diving into a new project or learning about a new technology. Going forward, I&rsquo;m going to start clearing out unread news articles after about a week. For technical resources, once I&rsquo;m finished with a project I&rsquo;m going to cull the bookmarks to the especially helpful ones and then toss them up to <a href="https://pinboard.in/">Pinboard</a>.</p>
 
-<p>After testing it out locally using <code>curl</code> and seeing it all work, it was time to integrate with the app.</p>
+<p>After that, I went through my collection of domains and disabled auto-renew for the ones I&rsquo;m not using anymore. Starting in February 2018, I&rsquo;ll be down to ericdavis.io, hnrss.org, and a domain/email package I set up for my parents. While the .io TLD is pricier than more common TLDs, I love that it has my full name in it. My goal is to eventually shift all my side projects into subdomains of ericdavis.io. I also <em>started</em> a new project. I created <a href="http://links.ericdavis.io/">links.ericdavis.io</a>, the future home of a linkblog I&rsquo;ve had on my mind for awhile. I think linkblogs are an underutilized style of blogging, and I&rsquo;m hoping I can breathe some life into the format. Stay tuned.</p>
 
-<p>After searching around for awhile, the eureka moment came when I <a href="https://github.com/lebinh/nginx-conf#sub-request-upon-completion">discovered the <code>post_action</code> feature</a> of NGINX. This enabled me to hit the Measurement Protocol API after serving the feed.</p>
-
-<p>Here&rsquo;s the necessary bits that I had to add to my NGINX config to get it all working:</p>
-
-<pre><code># replace UA-XXXXXXXX-Y with your Analytics property ID
-location @GA {
-  internal;
-  resolver 8.8.8.8 ipv6=off;
-  proxy_pass https://www.google-analytics.com/collect?v=1&amp;tid=UA-XXXXXXXX-Y&amp;cid=$remote_addr&amp;t=pageview&amp;dp=$request_uri&amp;uip=$remote_addr;
-}
-
-server {
-  # the standard stuff (server_name, listen, etc.)
-  location / {
-    # no changes needed other than adding post_action
-    post_action @GA;
-  }
-}
-</code></pre>
-
-<p>Also, directly passing the User-Agent (e.g., <code>ua=$http_user_agent</code>) gave me all sorts of problems (I think it wasn&rsquo;t being properly URL encoded) so I sanitized them with a <code>map</code>:</p>
-
-<pre><code># N.B. maps have to exist in the http context
-map $http_user_agent $user_agent {
-  &quot;&quot;                    empty;
-  &quot;~Android&quot;            android;
-  &quot;~^Slackbot&quot;          slackbot;
-  &quot;~^curl&quot;              curl;
-  &quot;~^Feedbin&quot;           feedbin;
-  &quot;~^Tiny Tiny&quot;         ttrss;
-  &quot;~^NewsBlur&quot;          newsblur;
-  &quot;~^Feedly&quot;            feedly;
-  &quot;~^Go-http&quot;           golang;
-  &quot;~^UniversalFeed&quot;     feedparser;
-  &quot;~^Zapier&quot;            zapier;
-  &quot;~^PHP&quot;               php;
-  &quot;~^python-requests&quot;   python-requests;
-  &quot;~^Mozilla&quot;           mozilla;
-  default               other;
-}
-</code></pre>
-
-<p>Then I added <code>ua=$user_agent</code> to the URL. Not ideal, but good enough for me.</p>
+<p>Finally, I took the posts from my two previous blogs and imported them into blog.ericdavis.io. The importer was a bit on the slow side (I have this blog hosted on wordpress.com), but overall they came in just fine. Also, I simplified the categories down to Technology and Sports.</p>
 
             </div>
           </div>

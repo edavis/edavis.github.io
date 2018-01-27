@@ -7,7 +7,7 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Personal homepage for Eric Davis">
     <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
-    <title>How to track traffic in Google Analytics without JS</title>
+    <title>TIL for February 25, 2016</title>
     <meta name="generator" content="Hugo 0.32.4" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
@@ -51,12 +51,12 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://edavis.github.io/2017/05/07/how-to-track-traffic-in-google-analytics-without-js/">How to track traffic in Google Analytics without JS</a></strong>
+            <strong><a href="https://edavis.github.io/2016/02/25/til-for-february-25-2016/">TIL for February 25, 2016</a></strong>
           </h3>
         </div>
         <div class="blog-title">
           <h4>
-          May 7, 2017
+          February 25, 2016
             &nbsp;&nbsp;
             
           </h4>
@@ -64,57 +64,24 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I&rsquo;ve long wanted to hook up the RSS feeds on <a href="https://hnrss.org/">hnrss.org</a> to Google Analytics so I could get a better sense of what kind of traffic the site got. But because the feeds are delivered as XML, I had to figure out a way to do it without JavaScript.</p>
+              <p><h3>Disable SSL for a given host in lftp</h3>
+Add &ldquo;set ftp:ssl-allow/&lt;host&gt; false&rdquo; to ~/.lftprc.</p>
 
-<p>After some poking around yesterday, I finally figured out a way.</p>
+<p>I had a client&rsquo;s FTP server that was redirecting me to FTP-SSL after the initial connection was made, but there was some mismatch on the certificates so lftp would error out. This setting prevents the redirection from happening.
+<h3>Hide untracked files in Git status output</h3>
+Use &ldquo;git status -uno&rdquo; or &ldquo;git config status.showUntrackedFiles no&rdquo;.</p>
 
-<p>Google Analytics has a <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/">Measurement Protocol API</a> built for this sort of thing. You send a HTTP request (POST and GET both work) with the necessary parameters, and it&rsquo;ll register the hit in your Analytics property.</p>
+<p>I&rsquo;m trying out a technique of only tracking the active theme files in Git and not touching anything else. This left me with tons of untracked files (other themes, uploads, plugins, core files, etc). Instead of fiddling with .gitignore (what I usually do), I&rsquo;m keeping all of that untracked and just hiding it.
+<h3>Set the cache key for nginx&rsquo;s uwsgi caching</h3>
+Add &lsquo;uwsgi_cache_key &ldquo;$request_method $scheme://$host$request_uri&rdquo;&rsquo; to the nginx config.</p>
 
-<p>After testing it out locally using <code>curl</code> and seeing it all work, it was time to integrate with the app.</p>
+<p>By default, &ldquo;uwsgi_cache_key&rdquo; is an empty string. This leads to the first cachable response being delivered for all future requests (because the same key is always used).</p>
 
-<p>After searching around for awhile, the eureka moment came when I <a href="https://github.com/lebinh/nginx-conf#sub-request-upon-completion">discovered the <code>post_action</code> feature</a> of NGINX. This enabled me to hit the Measurement Protocol API after serving the feed.</p>
+<p>With this, cache each response under a key like: &ldquo;GET <a href="http://example.com/about/?p=1​&quot;">http://example.com/about/?p=1​&quot;</a></p>
 
-<p>Here&rsquo;s the necessary bits that I had to add to my NGINX config to get it all working:</p>
+<p>(I like this style because it mirrors what a proper HTTP request looks like.)</p>
 
-<pre><code># replace UA-XXXXXXXX-Y with your Analytics property ID
-location @GA {
-  internal;
-  resolver 8.8.8.8 ipv6=off;
-  proxy_pass https://www.google-analytics.com/collect?v=1&amp;tid=UA-XXXXXXXX-Y&amp;cid=$remote_addr&amp;t=pageview&amp;dp=$request_uri&amp;uip=$remote_addr;
-}
-
-server {
-  # the standard stuff (server_name, listen, etc.)
-  location / {
-    # no changes needed other than adding post_action
-    post_action @GA;
-  }
-}
-</code></pre>
-
-<p>Also, directly passing the User-Agent (e.g., <code>ua=$http_user_agent</code>) gave me all sorts of problems (I think it wasn&rsquo;t being properly URL encoded) so I sanitized them with a <code>map</code>:</p>
-
-<pre><code># N.B. maps have to exist in the http context
-map $http_user_agent $user_agent {
-  &quot;&quot;                    empty;
-  &quot;~Android&quot;            android;
-  &quot;~^Slackbot&quot;          slackbot;
-  &quot;~^curl&quot;              curl;
-  &quot;~^Feedbin&quot;           feedbin;
-  &quot;~^Tiny Tiny&quot;         ttrss;
-  &quot;~^NewsBlur&quot;          newsblur;
-  &quot;~^Feedly&quot;            feedly;
-  &quot;~^Go-http&quot;           golang;
-  &quot;~^UniversalFeed&quot;     feedparser;
-  &quot;~^Zapier&quot;            zapier;
-  &quot;~^PHP&quot;               php;
-  &quot;~^python-requests&quot;   python-requests;
-  &quot;~^Mozilla&quot;           mozilla;
-  default               other;
-}
-</code></pre>
-
-<p>Then I added <code>ua=$user_agent</code> to the URL. Not ideal, but good enough for me.</p>
+<p>(h/t to <a href="http://cagrimmett.com/til/">Chuck Grimmett</a> for the style and format of this TIL post)</p>
 
             </div>
           </div>

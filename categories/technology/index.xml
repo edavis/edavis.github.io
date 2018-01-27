@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Eric Davis</title>
-    <link>https://edavis.github.io/blog/</link>
-    <description>Recent content in Blogs on Eric Davis</description>
+    <title>Technology on Eric Davis</title>
+    <link>https://edavis.github.io/categories/technology/</link>
+    <description>Recent content in Technology on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 May 2017 20:57:29 +0000</lastBuildDate>
     
-	<atom:link href="https://edavis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://edavis.github.io/categories/technology/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -33,16 +33,6 @@ Google Analytics has a Measurement Protocol API built for this sort of thing.</
     </item>
     
     <item>
-      <title>Good luck, UNLV</title>
-      <link>https://edavis.github.io/2016/12/28/good-luck-unlv/</link>
-      <pubDate>Wed, 28 Dec 2016 17:41:22 +0000</pubDate>
-      
-      <guid>https://edavis.github.io/2016/12/28/good-luck-unlv/</guid>
-      <description>When you&amp;rsquo;re a UNLV basketball fan, you&amp;rsquo;re used to knots in your stomach. No lead feels safe until the final buzzer rings. Opposing players put up career days with alarming regularity. Bottom feeder teams come out swinging against the former World Champs and steal one on your home floor. But those knots usually subside once the season wraps up.
-When Mick Cronin flew back to Cincinnati without being announced as the new head coach, I knew the knots would be here to stay during the offseason, too.</description>
-    </item>
-    
-    <item>
       <title>Howto enable WordPress maintenance mode</title>
       <link>https://edavis.github.io/2016/02/26/howto-enable-wordpress-maintenance-mode/</link>
       <pubDate>Fri, 26 Feb 2016 17:00:41 +0000</pubDate>
@@ -52,38 +42,6 @@ When Mick Cronin flew back to Cincinnati without being announced as the new head
 &amp;lt;?php $upgrading = 1455233470; ?&amp;gt; Place the file in the root of a WordPress installation.
 The number is a UNIX timestamp. If the timestamp is less than 10 minutes ago, the &amp;ldquo;maintenance mode&amp;rdquo; screen will be displayed. After 10 minutes, WordPress bypasses maintenance mode and loads the site as normal.
 Maintenance mode will also be bypassed if the file exists but is empty.</description>
-    </item>
-    
-    <item>
-      <title>Set the cache key for nginx’s uwsgi caching</title>
-      <link>https://edavis.github.io/2016/02/14/set-the-cache-key-for-nginxs-uwsgi-caching/</link>
-      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://edavis.github.io/2016/02/14/set-the-cache-key-for-nginxs-uwsgi-caching/</guid>
-      <description>Add uwsgi_cache_key &amp;quot;$request_method $scheme://$host$request_uri&amp;quot; to the nginx config.
-By default, “uwsgi_cache_key” is an empty string. This leads to the first cachable response being delivered for all future requests (because the same key is always used).
-With this, cache each response under a key like: “GET http://example.com/about/?p=1​&amp;quot;
-(I like this style because it mirrors what a proper HTTP request looks like.)</description>
-    </item>
-    
-    <item>
-      <title>Hide untracked files in Git status output</title>
-      <link>https://edavis.github.io/2016/02/09/hide-untracked-files-in-git-status-output/</link>
-      <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://edavis.github.io/2016/02/09/hide-untracked-files-in-git-status-output/</guid>
-      <description>Use git status -uno or git config status.showUntrackedFiles no.
-I’m trying out a technique of only tracking the active theme files in Git and not touching anything else. This left me with tons of untracked files (other themes, uploads, plugins, core files, etc). Instead of fiddling with .gitignore (what I usually do), I’m keeping all of that untracked and just hiding it.</description>
-    </item>
-    
-    <item>
-      <title>Disable SSL for a given host in lftp</title>
-      <link>https://edavis.github.io/2016/02/01/disable-ssl-for-a-given-host-in-lftp/</link>
-      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://edavis.github.io/2016/02/01/disable-ssl-for-a-given-host-in-lftp/</guid>
-      <description>Add set ftp:ssl-allow/&amp;lt;host&amp;gt; false in ~/.lftprc.
-I had a client’s FTP server that was redirecting me to FTP-SSL after the initial connection was made, but there was some mismatch on the certificates so lftp would error out. This setting prevents the redirection from happening.</description>
     </item>
     
     <item>

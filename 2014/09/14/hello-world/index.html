@@ -7,7 +7,7 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Personal homepage for Eric Davis">
     <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
-    <title>How to track traffic in Google Analytics without JS</title>
+    <title>Hello World</title>
     <meta name="generator" content="Hugo 0.32.4" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
@@ -51,12 +51,12 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://edavis.github.io/2017/05/07/how-to-track-traffic-in-google-analytics-without-js/">How to track traffic in Google Analytics without JS</a></strong>
+            <strong><a href="https://edavis.github.io/2014/09/14/hello-world/">Hello World</a></strong>
           </h3>
         </div>
         <div class="blog-title">
           <h4>
-          May 7, 2017
+          September 14, 2014
             &nbsp;&nbsp;
             
           </h4>
@@ -64,57 +64,21 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I&rsquo;ve long wanted to hook up the RSS feeds on <a href="https://hnrss.org/">hnrss.org</a> to Google Analytics so I could get a better sense of what kind of traffic the site got. But because the feeds are delivered as XML, I had to figure out a way to do it without JavaScript.</p>
+              <p> Hello everyone. I'm going to be relaunching this blog over the next few days. This is the first post in that effort. </p>
 
-<p>After some poking around yesterday, I finally figured out a way.</p>
+<p> It'll be mostly programming related (Python, Git, Emacs, RSS, etc.) but I may occassionally dabble with some political stuff. We'll see. </p>
 
-<p>Google Analytics has a <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/">Measurement Protocol API</a> built for this sort of thing. You send a HTTP request (POST and GET both work) with the necessary parameters, and it&rsquo;ll register the hit in your Analytics property.</p>
+<p> I'm writing this post in Emacs and will be posting it with org2blog/wp. I like this system and how it feels. Honestly, it reminds me a bit of a simplified World Outline (something I have got to write about in the future). </p>
 
-<p>After testing it out locally using <code>curl</code> and seeing it all work, it was time to integrate with the app.</p>
+<p> I think I may need a new title for this blog. Is it lame for a programmer to use Wordpress? I can't help but think it is but all the yak shaving required to build my own or use an existing flat-file system was just too boring for me to enjoy. I will say this: Wordpress knows how to build blogging software. You don't get to where they are unless you know what you're doing. </p>
 
-<p>After searching around for awhile, the eureka moment came when I <a href="https://github.com/lebinh/nginx-conf#sub-request-upon-completion">discovered the <code>post_action</code> feature</a> of NGINX. This enabled me to hit the Measurement Protocol API after serving the feed.</p>
+<p> One thing I'm going to work on in writing this blog is to just get the words out there. I find I agonize for too long over getting the words precisely right instead of putting it out there. So what if there are a few errors? In this very paragraph I've wanted to keep going back and rewrite something but down that road is dragons. Not to say I won't go back and clean this up, I just need to separate "writing" from "editing" a bit more forcefully. </p>
 
-<p>Here&rsquo;s the necessary bits that I had to add to my NGINX config to get it all working:</p>
+<p> I think good bloggers have that natural ability but I don't yet. I have the mind of an editor, not a blogger. But I think with practice I can fix that. At this stage I need to focus on churning out content rather than making sure what I put out is flawless. Let's face it: I have basically zero name recognition in the programming world. I've put a few projects up on Github but for the most part I just bounce along the rocky bottom of the Python world. But that's okay. It gives me a chance to keep improving myself in the hopes that one day people will know who I am and what I can do. </p>
 
-<pre><code># replace UA-XXXXXXXX-Y with your Analytics property ID
-location @GA {
-  internal;
-  resolver 8.8.8.8 ipv6=off;
-  proxy_pass https://www.google-analytics.com/collect?v=1&amp;tid=UA-XXXXXXXX-Y&amp;cid=$remote_addr&amp;t=pageview&amp;dp=$request_uri&amp;uip=$remote_addr;
-}
+<p> So far so good on not going back and re-writing/re-reading everything. Just keep busting out words. I'll go back over this once and fix any really bad typos but for the most part I want this to be what Dave Winer intended for blogging to be: "the unedited voice of a person." Man, what a great description. Hopefully I can live up to it and not let this blog wither on the vine again like I've done approximately three dozen times already. </p>
 
-server {
-  # the standard stuff (server_name, listen, etc.)
-  location / {
-    # no changes needed other than adding post_action
-    post_action @GA;
-  }
-}
-</code></pre>
-
-<p>Also, directly passing the User-Agent (e.g., <code>ua=$http_user_agent</code>) gave me all sorts of problems (I think it wasn&rsquo;t being properly URL encoded) so I sanitized them with a <code>map</code>:</p>
-
-<pre><code># N.B. maps have to exist in the http context
-map $http_user_agent $user_agent {
-  &quot;&quot;                    empty;
-  &quot;~Android&quot;            android;
-  &quot;~^Slackbot&quot;          slackbot;
-  &quot;~^curl&quot;              curl;
-  &quot;~^Feedbin&quot;           feedbin;
-  &quot;~^Tiny Tiny&quot;         ttrss;
-  &quot;~^NewsBlur&quot;          newsblur;
-  &quot;~^Feedly&quot;            feedly;
-  &quot;~^Go-http&quot;           golang;
-  &quot;~^UniversalFeed&quot;     feedparser;
-  &quot;~^Zapier&quot;            zapier;
-  &quot;~^PHP&quot;               php;
-  &quot;~^python-requests&quot;   python-requests;
-  &quot;~^Mozilla&quot;           mozilla;
-  default               other;
-}
-</code></pre>
-
-<p>Then I added <code>ua=$user_agent</code> to the URL. Not ideal, but good enough for me.</p>
+<p> Anything else? Don't think so. Still need to come up with a post title. Need to make sure org2blog handles source code well. </p>
 
             </div>
           </div>

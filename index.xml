@@ -6,25 +6,25 @@
     <description>Recent content on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 May 2017 20:57:29 +0000</lastBuildDate>
     
 	<atom:link href="https://edavis.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Go in one word? Productivity</title>
-      <link>https://edavis.github.io/2017/05/10/go-in-one-word-productivity/</link>
-      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      <title>Golang in one word? Productivity</title>
+      <link>https://edavis.github.io/2017/05/10/golang-in-one-word-productivity/</link>
+      <pubDate>Wed, 10 May 2017 20:57:29 +0000</pubDate>
       
-      <guid>https://edavis.github.io/2017/05/10/go-in-one-word-productivity/</guid>
-      <description>I&amp;rsquo;ve been batting around this idea over the past few days. Go is a great language and it has many superb features, but if I had to distill what I like so much about Go into one word, that word would be &amp;ldquo;productive.&amp;rdquo; I feel so incredibly productive writing Go code.
-Start with the documentation. I love Go&amp;rsquo;s documentation. I don&amp;rsquo;t know how much of it was a conscious decision by the developers, but the &amp;ldquo;culture of documentation&amp;rdquo; that I loved in Python is very much alive in the Go community.</description>
+      <guid>https://edavis.github.io/2017/05/10/golang-in-one-word-productivity/</guid>
+      <description>I&amp;rsquo;ve been batting around this idea over the past few days. Golang is a great language and it has many superb features, but if I had to distill what I like so much about Golang into one word, that word would be &amp;ldquo;productive.&amp;rdquo; I feel so incredibly productive writing Golang code.
+Start with the documentation. I love Golang&amp;rsquo;s documentation. I don&amp;rsquo;t know how much of it was a conscious decision by the developers, but the &amp;ldquo;culture of documentation&amp;rdquo; that I loved in Python is very much alive in the Golang community.</description>
     </item>
     
     <item>
       <title>How to track traffic in Google Analytics without JS</title>
       <link>https://edavis.github.io/2017/05/07/how-to-track-traffic-in-google-analytics-without-js/</link>
-      <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 07 May 2017 08:50:26 +0000</pubDate>
       
       <guid>https://edavis.github.io/2017/05/07/how-to-track-traffic-in-google-analytics-without-js/</guid>
       <description>I&amp;rsquo;ve long wanted to hook up the RSS feeds on hnrss.org to Google Analytics so I could get a better sense of what kind of traffic the site got. But because the feeds are delivered as XML, I had to figure out a way to do it without JavaScript.
@@ -33,29 +33,82 @@ Google Analytics has a Measurement Protocol API built for this sort of thing.</
     </item>
     
     <item>
-      <title>Understanding the WordPress Homepage Template Hierarchy</title>
+      <title>Good luck, UNLV</title>
+      <link>https://edavis.github.io/2016/12/28/good-luck-unlv/</link>
+      <pubDate>Wed, 28 Dec 2016 17:41:22 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2016/12/28/good-luck-unlv/</guid>
+      <description>When you&amp;rsquo;re a UNLV basketball fan, you&amp;rsquo;re used to knots in your stomach. No lead feels safe until the final buzzer rings. Opposing players put up career days with alarming regularity. Bottom feeder teams come out swinging against the former World Champs and steal one on your home floor. But those knots usually subside once the season wraps up.
+When Mick Cronin flew back to Cincinnati without being announced as the new head coach, I knew the knots would be here to stay during the offseason, too.</description>
+    </item>
+    
+    <item>
+      <title>Howto enable WordPress maintenance mode</title>
+      <link>https://edavis.github.io/2016/02/26/howto-enable-wordpress-maintenance-mode/</link>
+      <pubDate>Fri, 26 Feb 2016 17:00:41 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2016/02/26/howto-enable-wordpress-maintenance-mode/</guid>
+      <description>Create a &amp;ldquo;.maintenance&amp;rdquo; file in the webroot and include the following:
+&amp;lt;?php $upgrading = 1455233470; ?&amp;gt; Place the file in the root of a WordPress installation.
+The number is a UNIX timestamp. If the timestamp is less than 10 minutes ago, the &amp;ldquo;maintenance mode&amp;rdquo; screen will be displayed. After 10 minutes, WordPress bypasses maintenance mode and loads the site as normal.
+Maintenance mode will also be bypassed if the file exists but is empty.</description>
+    </item>
+    
+    <item>
+      <title>Set the cache key for nginx’s uwsgi caching</title>
+      <link>https://edavis.github.io/2016/02/14/set-the-cache-key-for-nginxs-uwsgi-caching/</link>
+      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2016/02/14/set-the-cache-key-for-nginxs-uwsgi-caching/</guid>
+      <description>Add uwsgi_cache_key &amp;quot;$request_method $scheme://$host$request_uri&amp;quot; to the nginx config.
+By default, “uwsgi_cache_key” is an empty string. This leads to the first cachable response being delivered for all future requests (because the same key is always used).
+With this, cache each response under a key like: “GET http://example.com/about/?p=1​&amp;quot;
+(I like this style because it mirrors what a proper HTTP request looks like.)</description>
+    </item>
+    
+    <item>
+      <title>Hide untracked files in Git status output</title>
+      <link>https://edavis.github.io/2016/02/09/hide-untracked-files-in-git-status-output/</link>
+      <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2016/02/09/hide-untracked-files-in-git-status-output/</guid>
+      <description>Use git status -uno or git config status.showUntrackedFiles no.
+I’m trying out a technique of only tracking the active theme files in Git and not touching anything else. This left me with tons of untracked files (other themes, uploads, plugins, core files, etc). Instead of fiddling with .gitignore (what I usually do), I’m keeping all of that untracked and just hiding it.</description>
+    </item>
+    
+    <item>
+      <title>Disable SSL for a given host in lftp</title>
+      <link>https://edavis.github.io/2016/02/01/disable-ssl-for-a-given-host-in-lftp/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2016/02/01/disable-ssl-for-a-given-host-in-lftp/</guid>
+      <description>Add set ftp:ssl-allow/&amp;lt;host&amp;gt; false in ~/.lftprc.
+I had a client’s FTP server that was redirecting me to FTP-SSL after the initial connection was made, but there was some mismatch on the certificates so lftp would error out. This setting prevents the redirection from happening.</description>
+    </item>
+    
+    <item>
+      <title>Understanding the WordPress homepage template hierarchy</title>
       <link>https://edavis.github.io/2016/01/29/understanding-the-wordpress-homepage-template-hierarchy/</link>
-      <pubDate>Fri, 29 Jan 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 29 Jan 2016 11:28:59 +0000</pubDate>
       
       <guid>https://edavis.github.io/2016/01/29/understanding-the-wordpress-homepage-template-hierarchy/</guid>
       <description>I&amp;rsquo;ve spent a few hours trying to wrap my head around how WordPress determines which template to use depending on which &amp;ldquo;Front page displays&amp;rdquo; option has been set. I&amp;rsquo;m writing this as the guide I wish existed when I was looking into this.
-If &amp;ldquo;Front page displays&amp;rdquo; is set to &amp;ldquo;Your latest posts,&amp;rdquo; WordPress will use front-page.php to render your homepage if the file exists. If front-page.php doesn&amp;rsquo;t exist, WordPress will use home.</description>
+If &amp;ldquo;Front page displays&amp;rdquo; is set to &amp;ldquo;Your latest posts,&amp;rdquo; WordPress will use front-page.php to render your homepage if the file exists. If front-page.php doesn&amp;rsquo;t exist, WordPress will use home.</description>
     </item>
     
     <item>
-      <title>The Google Post Mortem</title>
-      <link>https://edavis.github.io/2015/08/04/the-google-post-mortem/</link>
-      <pubDate>Tue, 04 Aug 2015 00:00:00 +0000</pubDate>
+      <title>203 days of Wordpress</title>
+      <link>https://edavis.github.io/2015/07/27/203-days-of-wordpress/</link>
+      <pubDate>Mon, 27 Jul 2015 10:13:47 +0000</pubDate>
       
-      <guid>https://edavis.github.io/2015/08/04/the-google-post-mortem/</guid>
-      <description>I&amp;rsquo;ve been looking forward to reading this post-mortem ever since Google+ launched.
-I remember jumping onto Google+ right after it launched and while the initial launch was exciting, it always just seemed obvious it would never catch on like Facebook.</description>
+      <guid>https://edavis.github.io/2015/07/27/203-days-of-wordpress/</guid>
+      <description>I started building websites with Wordpress back in January when I started my new job. Prior to that I worked almost exclusively with Django. I&amp;rsquo;ve been meaning to write about my experience making the change because it&amp;rsquo;s not a common one. Most developers start with Wordpress and eventually graduate to Django (and then write how much better Django is). Here are my impressions, in no particular order:  Plain ole&amp;rsquo; Wordpress is actually quite nice.</description>
     </item>
     
     <item>
-      <title>Confessions of a Web Developer</title>
+      <title>Confessions of a web developer</title>
       <link>https://edavis.github.io/2015/03/05/confessions-of-a-web-developer/</link>
-      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Mar 2015 15:15:08 +0000</pubDate>
       
       <guid>https://edavis.github.io/2015/03/05/confessions-of-a-web-developer/</guid>
       <description>I do sometimes wonder whether my starting programming as a web developer and not as some hardcore assembly hacker will ultimately lower my ceiling on what I can accomplish.
@@ -63,9 +116,40 @@ I&amp;rsquo;ve never really had to deal with memory management, hardware, or stu
     </item>
     
     <item>
-      <title>A Polyglot Guide to Package Management</title>
+      <title>Using the Vary header with the @cache_page decorator</title>
+      <link>https://edavis.github.io/2015/02/27/using-the-vary-header-with-the-cache_page-decorator/</link>
+      <pubDate>Fri, 27 Feb 2015 22:30:22 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2015/02/27/using-the-vary-header-with-the-cache_page-decorator/</guid>
+      <description>Problem
+Earlier today I needed to cache a view with the @cache_page decorator. The output of this view changes depending on whether the user making the request is logged in or not. Pretty standard stuff.
+However, I quickly discovered that @cache_page was caching both authenticated and anonymous requests under the same cache key. This led to the cache serving either the authenticated or anonymous version of the page, whichever was cached first.</description>
+    </item>
+    
+    <item>
+      <title>Creating a UTF-8 database in PostgreSQL</title>
+      <link>https://edavis.github.io/2015/02/06/creating-a-utf-8-database-in-postgresql/</link>
+      <pubDate>Fri, 06 Feb 2015 09:04:56 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2015/02/06/creating-a-utf-8-database-in-postgresql/</guid>
+      <description>I always forget the proper incantation for creating UTF-8 databases in PostgreSQL. I just had to do this for a project so I&amp;rsquo;m writing it down for future reference. Maybe it&amp;rsquo;ll be useful to somebody else out there.
+&amp;lt;code&amp;gt;sudo -u postgres createdb -E UTF8 -T template0 --locale=en_US.utf8 template_utf8&amp;lt;/code&amp;gt;  Now use this UTF-8 &amp;ldquo;template database&amp;rdquo; when creating your project database:
+&amp;lt;code&amp;gt;createdb -T template_utf8 new_database&amp;lt;/code&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>How Slackware made me a better developer</title>
+      <link>https://edavis.github.io/2014/09/21/how-slackware-made-me-a-better-developer/</link>
+      <pubDate>Sun, 21 Sep 2014 14:27:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2014/09/21/how-slackware-made-me-a-better-developer/</guid>
+      <description>Kwame Opam reminiscences about Linux and how it&#39;ll always hold a special place in his heart:   Thinking about this, I remembered how much I loved (and still love) Linux. And I had to reminisce. I remember being a pimply high school kid circa 2002 and configuring Gentoo Linux by hand — kernel and all — onto my little beige eMachines computer, losing days of actual productivity in the process.</description>
+    </item>
+    
+    <item>
+      <title>A polyglot guide to package management</title>
       <link>https://edavis.github.io/2014/09/21/a-polyglot-guide-to-package-management/</link>
-      <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Sep 2014 11:47:00 +0000</pubDate>
       
       <guid>https://edavis.github.io/2014/09/21/a-polyglot-guide-to-package-management/</guid>
       <description>Here&amp;rsquo;s something I would love to see: An online guide that explained everything you need to know about installing packages using a particular language&amp;rsquo;s package manager.
@@ -73,13 +157,14 @@ I use Python&amp;rsquo;s package manager, pip, on a near-daily basis. I know tha
     </item>
     
     <item>
-      <title>How Slackware Made Me a Better Developer</title>
-      <link>https://edavis.github.io/2014/09/21/how-slackware-made-me-a-better-developer/</link>
-      <pubDate>Sun, 21 Sep 2014 00:00:00 +0000</pubDate>
+      <title>Introducing homebrew-emacs</title>
+      <link>https://edavis.github.io/2014/09/20/introducing-homebrew-emacs/</link>
+      <pubDate>Sat, 20 Sep 2014 15:25:00 +0000</pubDate>
       
-      <guid>https://edavis.github.io/2014/09/21/how-slackware-made-me-a-better-developer/</guid>
-      <description>Kwame Opam reminiscences about Linux and how it&amp;rsquo;ll always hold a special place in his heart:
- Thinking about this, I remembered how much I loved (and still love) Linux. And I had to reminisce. I remember being a pimply high school kid circa 2002 and configuring Gentoo Linux by hand — kernel and all — onto my little beige eMachines computer, losing days of actual productivity in the process. And loving it.</description>
+      <guid>https://edavis.github.io/2014/09/20/introducing-homebrew-emacs/</guid>
+      <description>Over the past few days I&amp;rsquo;ve been working on a repository of Emacs packages that can be installed via Homebrew. Now that it has a handful of useful packages available, it felt like a good time to officially introduce homebrew-emacs to the world.
+It is a &amp;ldquo;tap&amp;rdquo; that, once installed, allows you to install Emacs packages using the Homebrew package manager. The README has installation and configuration instructions.
+Package management is one of those things I really don&amp;rsquo;t want to spend too much time thinking about.</description>
     </item>
     
   </channel>

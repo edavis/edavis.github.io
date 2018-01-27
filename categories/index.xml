@@ -10,5 +10,23 @@
 	<atom:link href="https://edavis.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Sports</title>
+      <link>https://edavis.github.io/categories/sports/</link>
+      <pubDate>Wed, 28 Dec 2016 17:41:22 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/categories/sports/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology</title>
+      <link>https://edavis.github.io/categories/technology/</link>
+      <pubDate>Wed, 10 May 2017 20:57:29 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/categories/technology/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
