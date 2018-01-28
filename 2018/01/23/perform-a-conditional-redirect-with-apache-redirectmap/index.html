@@ -7,7 +7,7 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Personal homepage for Eric Davis">
     <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
-    <title>Golang in one word? Productivity</title>
+    <title>Perform a conditional redirect with Apache RedirectMap</title>
     <meta name="generator" content="Hugo 0.32.4" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
@@ -49,12 +49,12 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://edavis.github.io/2017/05/10/golang-in-one-word-productivity/">Golang in one word? Productivity</a></strong>
+            <strong><a href="https://edavis.github.io/2018/01/23/perform-a-conditional-redirect-with-apache-redirectmap/">Perform a conditional redirect with Apache RedirectMap</a></strong>
           </h3>
         </div>
         <div class="blog-title">
           <h4>
-          May 10, 2017
+          January 23, 2018
             &nbsp;&nbsp;
             
           </h4>
@@ -62,15 +62,24 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>I&rsquo;ve been batting around this idea over the past few days. Golang is a great language and it has many superb features, but if I had to distill what I like so much about Golang into one word, that word would be &ldquo;productive.&rdquo; I feel so incredibly productive writing Golang code.</p>
+              <p><a href="https://httpd.apache.org/docs/2.4/rewrite/rewritemap.html">RedirectMap</a> is great, but I needed it to perform a redirect only
+if the incoming URL was actually in the specified text file. All other
+incoming URLs should be passed along and handled as normal.</p>
 
-<p>Start with the documentation. I love Golang&rsquo;s documentation. I don&rsquo;t know how much of it was a conscious decision by the developers, but the &ldquo;culture of documentation&rdquo; that I loved in Python is very much alive in the Golang community. Reading the documentation of standard library packages on godoc.org made a language I didn&rsquo;t know just a few weeks ago much more understandable. I&rsquo;ve been able to easily integrate third-party packages into my code because they were all well documented.</p>
+<p>After some digging and an assist from <a href="https://stackoverflow.com/a/9266131">StackOverflow</a>, the key bit
+ended up being <code>RewriteCond</code>:</p>
 
-<p>Coming from older languages, the tooling around Golang feels so modern. <code>go get</code> and you&rsquo;ve got the package on your system, ready to use. <code>go fmt</code> and you don&rsquo;t have to waste cycles on getting the format just right. <code>go install</code> and you&rsquo;ve got a binary or a library in a few seconds. And the Github support! We developers love our Github, so why not make use of it to host code? It&rsquo;s brilliant.</p>
+<pre><code>RewriteCond &quot;${MyRedirectMap:$1|NOT_FOUND}&quot; !NOT_FOUND
+RewriteRule ^(.*)$ &quot;${MyRedirectMap:$1}&quot; [R,L]
+</code></pre>
 
-<p>Then there&rsquo;s the parts of the language spec itself. At first, I didn&rsquo;t care for struct tags, but now I&rsquo;ve seen the light. So much of programming is slinging bits around in XML or JSON — why not include that info front and center? The way pointers are automatically dereferenced when needed lets me focus on what my code is trying to solve, not the nuts and bolts of memory management.</p>
+<p>Without <code>RewriteCond</code>, every incoming URL is sent to <code>MyRedirectMap</code>
+which successfully redirects if the URL is found but breaks the site
+if the URL is not found.</p>
 
-<p>I&rsquo;m still getting my feet wet with Golang but I haven&rsquo;t felt this productive in a new language in a long time.</p>
+<p>With <code>RewriteCond</code> in place, every incoming URL is first checked for
+existence in <code>MyRedirectMap</code> and the redirect only occurs if the URL
+is found.</p>
 
             </div>
           </div>

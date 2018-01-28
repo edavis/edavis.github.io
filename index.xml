@@ -6,19 +6,30 @@
     <description>Recent content on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 May 2017 20:57:29 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://edavis.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Golang in one word? Productivity</title>
-      <link>https://edavis.github.io/2017/05/10/golang-in-one-word-productivity/</link>
+      <title>Perform a conditional redirect with Apache RedirectMap</title>
+      <link>https://edavis.github.io/2018/01/23/perform-a-conditional-redirect-with-apache-redirectmap/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://edavis.github.io/2018/01/23/perform-a-conditional-redirect-with-apache-redirectmap/</guid>
+      <description>RedirectMap is great, but I needed it to perform a redirect only if the incoming URL was actually in the specified text file. All other incoming URLs should be passed along and handled as normal.
+After some digging and an assist from StackOverflow, the key bit ended up being RewriteCond:
+RewriteCond &amp;quot;${MyRedirectMap:$1|NOT_FOUND}&amp;quot; !NOT_FOUND RewriteRule ^(.*)$ &amp;quot;${MyRedirectMap:$1}&amp;quot; [R,L]  Without RewriteCond, every incoming URL is sent to MyRedirectMap which successfully redirects if the URL is found but breaks the site if the URL is not found.</description>
+    </item>
+    
+    <item>
+      <title>Go in one word? Productivity</title>
+      <link>https://edavis.github.io/2017/05/10/go-in-one-word-productivity/</link>
       <pubDate>Wed, 10 May 2017 20:57:29 +0000</pubDate>
       
-      <guid>https://edavis.github.io/2017/05/10/golang-in-one-word-productivity/</guid>
-      <description>I&amp;rsquo;ve been batting around this idea over the past few days. Golang is a great language and it has many superb features, but if I had to distill what I like so much about Golang into one word, that word would be &amp;ldquo;productive.&amp;rdquo; I feel so incredibly productive writing Golang code.
-Start with the documentation. I love Golang&amp;rsquo;s documentation. I don&amp;rsquo;t know how much of it was a conscious decision by the developers, but the &amp;ldquo;culture of documentation&amp;rdquo; that I loved in Python is very much alive in the Golang community.</description>
+      <guid>https://edavis.github.io/2017/05/10/go-in-one-word-productivity/</guid>
+      <description>I&amp;rsquo;ve been batting around this idea over the past few days. Go is a great language and it has many superb features, but if I had to distill what I like so much about Go into one word, that word would be &amp;ldquo;productive.&amp;rdquo; I feel so incredibly productive writing Go code.
+Start with the documentation. I love Go&amp;rsquo;s documentation. I don&amp;rsquo;t know how much of it was a conscious decision by the developers, but the &amp;ldquo;culture of documentation&amp;rdquo; that I loved in Python is very much alive in the Go community.</description>
     </item>
     
     <item>
@@ -87,12 +98,12 @@ If &amp;ldquo;Front page displays&amp;rdquo; is set to &amp;ldquo;Your latest po
     </item>
     
     <item>
-      <title>203 days of Wordpress</title>
+      <title>203 days of WordPress</title>
       <link>https://edavis.github.io/2015/07/27/203-days-of-wordpress/</link>
       <pubDate>Mon, 27 Jul 2015 10:13:47 +0000</pubDate>
       
       <guid>https://edavis.github.io/2015/07/27/203-days-of-wordpress/</guid>
-      <description>I started building websites with Wordpress back in January when I started my new job. Prior to that I worked almost exclusively with Django. I&amp;rsquo;ve been meaning to write about my experience making the change because it&amp;rsquo;s not a common one. Most developers start with Wordpress and eventually graduate to Django (and then write how much better Django is). Here are my impressions, in no particular order:  Plain ole&amp;rsquo; Wordpress is actually quite nice.</description>
+      <description>I started building websites with WordPress back in January when I started my new job. Prior to that I worked almost exclusively with Django. I&amp;rsquo;ve been meaning to write about my experience making the change because it&amp;rsquo;s not a common one. Most developers start with WordPress and eventually graduate to Django (and then write how much better Django is). Here are my impressions, in no particular order:  Plain ole&amp;rsquo; WordPress is actually quite nice.</description>
     </item>
     
     <item>
