@@ -6,10 +6,25 @@
     <description>Recent content in Blogs on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2018 14:33:19 -0800</lastBuildDate>
     
 	<atom:link href="https://edavis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git reset for the impatient</title>
+      <link>https://edavis.github.io/2018/01/29/git-reset-for-the-impatient/</link>
+      <pubDate>Mon, 29 Jan 2018 14:33:19 -0800</pubDate>
+      
+      <guid>https://edavis.github.io/2018/01/29/git-reset-for-the-impatient/</guid>
+      <description>A cheatsheet for what git reset does in each mode of operation.
+git reset --hard &amp;lt;commit&amp;gt;
+Current branch, index, and working directory set to the tree of &amp;lt;commit&amp;gt;.
+git reset [--mixed] &amp;lt;commit&amp;gt;
+Current branch and index set to the tree of &amp;lt;commit&amp;gt;. Working directory not modified.
+git reset --soft &amp;lt;commit&amp;gt;
+Current branch set to the tree of &amp;lt;commit&amp;gt;. Index and working directory not modified.</description>
+    </item>
     
     <item>
       <title>Perform a conditional redirect with Apache RedirectMap</title>
