@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Personal homepage for Eric Davis">
+    <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
+    <title>Overriding variables in Bulma</title>
+    <meta name="generator" content="Hugo 0.32.4" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="https://edavis.github.io/css/overrides.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://edavis.github.io/"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="https://edavis.github.io/2018/02/03/overriding-variables-in-bulma/">Overriding variables in Bulma</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          February 3, 2018
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p><a href="https://bulma.io/">Bulma</a> is an awesome CSS framework I&rsquo;m using to build a new
+WordPress theme.</p>
+
+<p>However, I needed to override the default background color and font
+along with increasing the size of a breakpoint. Here are my notes for
+how I accomplished it. The Bulma part was easy, it was figuring out
+npm and gulp that took the longest. There may be cleaner or better
+ways to do this, but it&rsquo;s working pretty well for me so far.</p>
+
+<p>Install the source files (<code>$ npm install bulma</code>) which will place the
+latest Bulma release in <code>./node_modules/bulma/</code>.</p>
+
+<p>I copied this directory to <code>./vendor/bulma/</code> as everything I found
+said <code>./node_modules/</code> should be kept out of version control.</p>
+
+<p>Create a <code>style.scss</code> with the following at the top:</p>
+
+<pre><code class="language-css">@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
+// Needed for $gap
+@import &quot;vendor/bulma/sass/utilities/initial-variables&quot;;
+
+$family-sans-serif: &quot;Muli&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+$body-background-color: #F4F4F4;
+$fullhd: 1480px + (2 * $gap);
+
+// Now, import the full package
+@import &quot;vendor/bulma/bulma&quot;;
+
+// Site styles start here
+</code></pre>
+
+<p>Now the compiled CSS will include Bulma (with the customized defaults)
+along with the site-specific styles.</p>
+
+<p>I then rigged up gulp to teach myself how that tool works by placing
+the following in <code>gulpfile.js</code>:</p>
+
+<pre><code class="language-javascript">var gulp = require( 'gulp' );
+var sass = require( 'gulp-sass' );
+
+var paths = {
+	styles: ['style.scss'],
+}
+
+gulp.task( 'styles', function () {
+	return gulp.src( paths.styles )
+	.pipe( sass({ outputStyle: 'compact' }))
+	.pipe( gulp.dest( '.' ));
+});
+
+gulp.task( 'default', ['styles'] );
+</code></pre>
+
+<p>And run it with <code>gulp</code>. Kind of overkill for now, but with gulp in
+place I can add more tasks as needed with ease.</p>
+
+<p>(H/T to <a href="http://www.cagrimmett.com/">Chuck Grimmett</a> for sharing one of his gulpfiles which
+clarified a few tricky bits for me.)</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a>,
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">Sustain</a>, and ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://edavis.github.io/js/docs.min.js"></script>
+<script src="https://edavis.github.io/js/main.js"></script>
+
+<script src="https://edavis.github.io/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+  </body>
+</html>
