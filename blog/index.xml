@@ -193,19 +193,5 @@ It is a &amp;ldquo;tap&amp;rdquo; that, once installed, allows you to install Em
 Package management is one of those things I really don&amp;rsquo;t want to spend too much time thinking about.</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://edavis.github.io/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://edavis.github.io/1/01/01/</guid>
-      <description>CSS: Creating angled backgrounds https://css-tricks.com/css3-gradients/ need it not jagged
-WordPress: Adding an index to wp_options title: &amp;ldquo;Wordpress Autoload Index&amp;rdquo; date: 2018-01-30T11:54:50-08:00
-draft: true https://wordpress.stackexchange.com/a/71729 https://wordpress.stackexchange.com/q/98284 https://wordpress.stackexchange.com/a/98287 https://webmonkeyuk.wordpress.com/2010/09/27/what-makes-a-good-mysql-index-part-2-cardinality/ https://wordpress.org/plugins/index-autoload-littlebizzy/ https://www.google.com/search?q=mysql+index+cardinality&amp;amp;oq=mysql+index+car&amp;amp;aqs=chrome.0.0j69i57j69i60j0l3.2294j1j7&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8
-WordPress: Generating nonces to protect a file title: &amp;ldquo;Wordpress Protect Urls&amp;rdquo; date: 2018-01-30T14:38:08-08:00
-draft: true need to enable on vva-er-wp1 session.auto_start = 1
-WordPress: Beware WP_Query and wp_users_dropdown() WordPress: Initialize new site from the CLI title: &amp;ldquo;Wordpress New Site From Cli&amp;rdquo; date: 2018-02-01T10:58:02-08:00</description>
-    </item>
-    
   </channel>
 </rss>
