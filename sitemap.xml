@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://edavis.github.io/2018/02/04/create-an-angled-background-in-css/</loc>
+    <lastmod>2018-02-04T10:19:00-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://edavis.github.io/2018/02/03/overriding-variables-in-bulma/</loc>
     <lastmod>2018-02-03T11:11:37-08:00</lastmod>
   </url>
@@ -89,7 +94,7 @@
   
   <url>
     <loc>https://edavis.github.io/blog/</loc>
-    <lastmod>2018-02-03T11:11:37-08:00</lastmod>
+    <lastmod>2018-02-04T10:19:00-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -100,7 +105,7 @@
   
   <url>
     <loc>https://edavis.github.io/</loc>
-    <lastmod>2018-02-03T11:11:37-08:00</lastmod>
+    <lastmod>2018-02-04T10:19:00-08:00</lastmod>
     <priority>0</priority>
   </url>
   

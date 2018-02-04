@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Personal homepage for Eric Davis">
+    <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
+    <title>Create an angled background in CSS</title>
+    <meta name="generator" content="Hugo 0.32.4" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="https://edavis.github.io/css/overrides.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://edavis.github.io/"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="https://edavis.github.io/2018/02/04/create-an-angled-background-in-css/">Create an angled background in CSS</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          February 4, 2018
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              <p>The design specs for a new WordPress theme I&rsquo;m building call for an
+angled background:</p>
+
+<p><img src="/img/2018/css-angled-background-0.png"></p>
+
+<p>This one took awhile to figure this one out so &mdash; to borrow a
+classic tech blog motto &mdash; I&rsquo;m writing the post I wish I had
+found when I started down this path.</p>
+
+<hr />
+
+<p>My initial searches of how other people have solved this led to a lot
+of recommendations of stuff like <code>transform</code>, <code>skewY</code>, <code>clip-path</code>,
+and psuedo-selectors.</p>
+
+<p>While it was fun to kick the tires on some of the new, advanced
+features CSS has developed in recent years, each attempt either ended
+with a ton of code smell or I would discover browser support was
+limited and therefore not a viable solution.</p>
+
+<hr />
+
+<p>I decided to scrap all the advanced trickery and return to basics.</p>
+
+<p>The thing I&rsquo;m working on is a background, therefore I decided to focus
+on the CSS <code>background</code> property. Is there a widely-used <code>background</code>
+property which starts as one color and finishes as another? Why, yes
+there is: <code>linear-gradient()</code>.</p>
+
+<p>I first put together the most basic gradient I could think of, just to
+guage viability of using <code>linear-gradient()</code> for this.</p>
+
+<p><code>background-image: linear-gradient(to bottom, #22313F, #F4F4F4)</code>:</p>
+
+<p><img src="/img/2018/css-angled-background-1.png"></p>
+
+<p>Not bad! The color proportions are off, the angle is wrong, and the
+transition is too gradual &mdash; but this was offering the best
+solution yet.</p>
+
+<hr />
+
+<p>The first change I made was to have the dark blue extend further down.</p>
+
+<p>A percentage or length after a color tells the gradient that the color
+should reach its apex at that position.</p>
+
+<p><code>background-image: linear-gradient(to bottom, #22313F 70%, #F4F4F4)</code>:</p>
+
+<p><img src="/img/2018/css-angled-background-2.png"></p>
+
+<p>With 0% being the start of a background, and 100% being the end of a
+background.</p>
+
+<p>This tells the gradient to blend from the starting color until 70% of
+the background has been covered at which point <code>#22313F</code> is at its
+apex.</p>
+
+<p>This achieved the desired effect because the first color is also the
+starting color, leading to the solid color at the top (which I
+wanted).</p>
+
+<p>The next color in the list, <code>#F4F4F4</code> starts at 70% and reaches its
+apex at 100% (hence why it is less solid than the dark blue.)</p>
+
+<p>Still need to sharpen that dividing line, but it&rsquo;s coming along.</p>
+
+<hr />
+
+<p>The second change I made was to have the angle slightly tilted.</p>
+
+<p><code>background-image: linear-gradient(176deg, #22313F 70%, #F4F4F4)</code>:</p>
+
+<p><img src="/img/2018/css-angled-background-3.png"></p>
+
+<p>&ldquo;to bottom&rdquo; is equivalent to <code>180deg</code> and from there it was just a
+matter of finding an angle that matched the spec.</p>
+
+<hr />
+
+<p>Getting a sharp transition between the two colors took the longest
+time to figure out.</p>
+
+<p>Everything clicked once I realized I just needed the apex of <code>#F4F4F4</code>
+to <em>also</em> occur at 70% of the background image. That way it would be a
+solid color (<code>#22313F</code>) from 0% to 70% and another solid color
+(<code>#F4F4F4</code>) from 70% to 100%.</p>
+
+<p><code>background-image: linear-gradient(176deg, #22313F 70%, #F4F4F4 70%)</code>:</p>
+
+<p><img src="/img/2018/css-angled-background-4.png"></p>
+
+<p>So close! But those jagged edges obviously wouldn&rsquo;t fly so I had to
+keep at it.</p>
+
+<hr />
+
+<p>I eventually stumbled upon
+a <a href="https://stackoverflow.com/a/40261626">Stack Overflow answer</a> that
+provided the missing piece.</p>
+
+<p><code style="font-size: 14px;">
+background-image: linear-gradient(176deg, #22313F 70%, #F4F4F4
+calc(70% + 2px))
+</code>:</p>
+
+<p><img src="/img/2018/css-angled-background-0.png"></p>
+
+<p>The reason <code>calc(70% + 2px)</code> worked while <code>70%</code> didn&rsquo;t is that <code>70%</code>
+provided absolutely zero gradation between the two colors.</p>
+
+<p>What <code>calc(70% + 2px)</code> provides is a very, very small amount of
+gradation between the two colors which the eye perceives as a sharp
+transition without it being jagged.</p>
+
+<p>So <code>#22313F</code> starts at 0% and reaches its apex at 70%. Then, <code>#F4F4F4</code>
+reaches <em>its</em> apex at 70% plus two pixels and continuing to 100%.</p>
+
+<p>So those there is still a gradient &mdash; it&rsquo;s just a two pixel
+gradient from dark blue to light gray.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a>,
+      <a href="http://www.github.com/nurlansu/hugo-sustain/">Sustain</a>, and ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://edavis.github.io/js/docs.min.js"></script>
+<script src="https://edavis.github.io/js/main.js"></script>
+
+<script src="https://edavis.github.io/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+  </body>
+</html>

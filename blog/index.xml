@@ -6,10 +6,21 @@
     <description>Recent content in Blogs on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Feb 2018 11:11:37 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2018 10:19:00 -0800</lastBuildDate>
     
 	<atom:link href="https://edavis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create an angled background in CSS</title>
+      <link>https://edavis.github.io/2018/02/04/create-an-angled-background-in-css/</link>
+      <pubDate>Sun, 04 Feb 2018 10:19:00 -0800</pubDate>
+      
+      <guid>https://edavis.github.io/2018/02/04/create-an-angled-background-in-css/</guid>
+      <description>The design specs for a new WordPress theme I&amp;rsquo;m building call for an angled background:
+This one took awhile to figure this one out so &amp;mdash; to borrow a classic tech blog motto &amp;mdash; I&amp;rsquo;m writing the post I wish I had found when I started down this path.
+My initial searches of how other people have solved this led to a lot of recommendations of stuff like transform, skewY, clip-path, and psuedo-selectors.</description>
+    </item>
     
     <item>
       <title>Overriding variables in Bulma</title>
