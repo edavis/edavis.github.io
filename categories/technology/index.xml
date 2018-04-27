@@ -39,7 +39,7 @@ Google Analytics has a Measurement Protocol API built for this sort of thing.</
       
       <guid>https://edavis.github.io/2016/02/26/enable-wordpress-maintenance-mode/</guid>
       <description>Create a &amp;ldquo;.maintenance&amp;rdquo; file in the webroot and include the following:
-&amp;lt;?php $upgrading = 1455233470; ?&amp;gt; Place the file in the root of a WordPress installation.
+&amp;lt;?php $upgrading = 1455233470; ?&amp;gt;  Place the file in the root of a WordPress installation.
 The number is a UNIX timestamp. If the timestamp is less than 10 minutes ago, the &amp;ldquo;maintenance mode&amp;rdquo; screen will be displayed. After 10 minutes, WordPress bypasses maintenance mode and loads the site as normal.
 Maintenance mode will also be bypassed if the file exists but is empty.</description>
     </item>

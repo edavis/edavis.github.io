@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Feb 2018 10:19:00 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Apr 2018 08:37:37 -0700</lastBuildDate>
     
 	<atom:link href="https://edavis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to fix &#34;SSLRead() return error -9806&#34; in WordPress</title>
+      <link>https://edavis.github.io/2018/04/25/how-to-fix-sslread-return-error--9806-in-wordpress/</link>
+      <pubDate>Wed, 25 Apr 2018 08:37:37 -0700</pubDate>
+      
+      <guid>https://edavis.github.io/2018/04/25/how-to-fix-sslread-return-error--9806-in-wordpress/</guid>
+      <description>tl;dr: Use HTTP/1.1 by setting &#39;httpversion&#39; =&amp;gt; &#39;1.1&#39; inside wp_remote_get().
+At one point in time, the suggested fix for this was to recompile PHP against Homebrew&amp;rsquo;s keg-only version of curl via --with-homebrew-curl but recent versions of PHP in Homebrew no longer have that option.</description>
+    </item>
     
     <item>
       <title>Create an angled background in CSS</title>
@@ -86,7 +96,7 @@ Google Analytics has a Measurement Protocol API built for this sort of thing.</
       
       <guid>https://edavis.github.io/2016/02/26/enable-wordpress-maintenance-mode/</guid>
       <description>Create a &amp;ldquo;.maintenance&amp;rdquo; file in the webroot and include the following:
-&amp;lt;?php $upgrading = 1455233470; ?&amp;gt; Place the file in the root of a WordPress installation.
+&amp;lt;?php $upgrading = 1455233470; ?&amp;gt;  Place the file in the root of a WordPress installation.
 The number is a UNIX timestamp. If the timestamp is less than 10 minutes ago, the &amp;ldquo;maintenance mode&amp;rdquo; screen will be displayed. After 10 minutes, WordPress bypasses maintenance mode and loads the site as normal.
 Maintenance mode will also be bypassed if the file exists but is empty.</description>
     </item>

@@ -7,7 +7,7 @@
     <meta name="author" content="map[]" />
     <meta name="description" content="Personal homepage for Eric Davis">
     <link rel="shortcut icon" type="image/x-icon" href="https://edavis.github.io/img/favicon.ico">
-    <title>Introducing homebrew-emacs</title>
+    <title>How to fix &#34;SSLRead() return error -9806&#34; in WordPress</title>
     <meta name="generator" content="Hugo 0.40" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://edavis.github.io/css/main.css" />
@@ -49,12 +49,12 @@
       <div class="container">
         <div class="blog-post">
           <h3>
-            <strong><a href="https://edavis.github.io/2014/09/20/introducing-homebrew-emacs/">Introducing homebrew-emacs</a></strong>
+            <strong><a href="https://edavis.github.io/2018/04/25/how-to-fix-sslread-return-error--9806-in-wordpress/">How to fix &#34;SSLRead() return error -9806&#34; in WordPress</a></strong>
           </h3>
         </div>
         <div class="blog-title">
           <h4>
-          September 20, 2014
+          April 25, 2018
             &nbsp;&nbsp;
             
           </h4>
@@ -62,13 +62,12 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="blogpost">
-              <p>Over the past few days I&rsquo;ve been working on a repository of Emacs packages that can be installed via Homebrew. Now that it has a handful of useful packages available, it felt like a good time to officially introduce <a href="https://github.com/edavis/homebrew-emacs">homebrew-emacs</a> to the world.</p>
+              <p><strong>tl;dr:</strong> Use HTTP/1.1 by setting <code>'httpversion' =&gt; '1.1'</code> inside <code>wp_remote_get()</code>.</p>
 
-<p>It is a &ldquo;<a href="https://github.com/Homebrew/homebrew/wiki/Homebrew-0.9">tap</a>&rdquo; that, once installed, allows you to install <a href="https://www.gnu.org/software/emacs/">Emacs</a> packages using the <a href="http://brew.sh/">Homebrew</a> package manager. The <a href="https://github.com/edavis/homebrew-emacs#readme">README</a> has installation and configuration instructions.</p>
-
-<p>Package management is one of those things I really don&rsquo;t want to spend too much time thinking about. All of the existing Emacs package managers, I felt, required way too much configuration before they were usable. As I already use Homebrew for a bunch of other things, why not for Emacs packages, too?</p>
-
-<p>My goal is to eventually have this tap blessed by the Homebrew maintainers as the official Emacs tap. Feedback and pull requests are welcome.</p>
+<p><a href="https://gist.github.com/ryanscherler/fea4bb75379c1564df7e027c45615cc9">At one point in time</a>, the suggested fix for this was to recompile
+PHP against Homebrew&rsquo;s keg-only version of curl via
+<code>--with-homebrew-curl</code> but recent versions of PHP in Homebrew no
+longer have that option.</p>
 
             </div>
           </div>
