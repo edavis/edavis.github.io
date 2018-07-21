@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on Eric Davis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Apr 2018 08:37:37 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jul 2018 14:33:54 -0700</lastBuildDate>
     
 	<atom:link href="https://edavis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Speed up DNS lookups when using the .local TLD pointing to 127.0.0.1 on macOS</title>
+      <link>https://edavis.github.io/2018/07/21/speed-up-local-tld-dns-lookups/</link>
+      <pubDate>Sat, 21 Jul 2018 14:33:54 -0700</pubDate>
+      
+      <guid>https://edavis.github.io/2018/07/21/speed-up-local-tld-dns-lookups/</guid>
+      <description>Please wait while you&amp;rsquo;re redirected&amp;hellip;</description>
+    </item>
     
     <item>
       <title>How to fix &#34;SSLRead() return error -9806&#34; in WordPress</title>
