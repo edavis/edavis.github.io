@@ -17,7 +17,8 @@
       <pubDate>Sat, 21 Jul 2018 14:33:54 -0700</pubDate>
       
       <guid>https://edavis.github.io/2018/07/21/speed-up-local-tld-dns-lookups/</guid>
-      <description>Click here if you&amp;rsquo;re not redirected&amp;hellip;</description>
+      <description>I was using httpstat to test out some nginx changes when I noticed it was taking over five seconds just to perform the DNS lookup. As the host I was hitting was running on 127.0.0.1, this seemed crazy to me. Something like that should be instant as I had mapped the entry in /etc/hosts.
+I eventually stumbled upon this writeup which explained what was going on. Apparently Bonjour intercepts requests for .</description>
     </item>
     
     <item>
